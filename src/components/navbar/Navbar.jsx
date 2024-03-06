@@ -1,9 +1,10 @@
 import Links from "@/components/navbar/links/Links";
+import cls from "./Navbar.module.css"
 
 const Navbar = () => {
     return (
-        <div>
-            <div>Logo</div>
+        <div className={cls.container}>
+            <div className={cls.logo}>Logo</div>
             <div>
                 <Links />
             </div>
