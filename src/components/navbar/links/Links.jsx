@@ -1,6 +1,6 @@
 "use client"
 
-import cls from './Links.module.css'
+import cls from './links.module.css'
 import NavLink from "@/components/navbar/links/NavLink/NavLink";
 import {useState} from "react";
 

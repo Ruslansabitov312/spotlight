@@ -1,5 +1,5 @@
 import Links from "@/components/navbar/links/Links";
-import cls from "./Navbar.module.css"
+import cls from "./navbar.module.css"
 import Link from "next/link";
 
 const Navbar = () => {

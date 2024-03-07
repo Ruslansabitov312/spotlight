@@ -1,4 +1,4 @@
-import cls from './Home.module.css'
+import cls from './home.module.css'
 import Image from "next/image";
 
 const Home = () => {

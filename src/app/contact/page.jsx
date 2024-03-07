@@ -1,4 +1,4 @@
-import cls from './Contact.module.css'
+import cls from './contact.module.css'
 import Image from "next/image";
 
 const ContactPage = () => {

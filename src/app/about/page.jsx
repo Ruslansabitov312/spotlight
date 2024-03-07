@@ -1,4 +1,4 @@
-import cls from './About.module.css'
+import cls from './about.module.css'
 import Image from "next/image";
 
 const AboutPage = () => {
