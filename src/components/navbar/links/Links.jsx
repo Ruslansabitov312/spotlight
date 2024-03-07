@@ -47,7 +47,7 @@ const Links = () => {
                     )
                 }
             </div>
-            <button className={cls.menuBtn} onClick={() => setOpen((prev) => !prev)}>menu</button>
+            <button className={cls.menuButton} onClick={() => setOpen((prev) => !prev)}>menu</button>
             {
                 open && <div className={cls.mobileLinks}>
                     {links.map((link) => (
