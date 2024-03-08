@@ -3,6 +3,7 @@
 import cls from './links.module.css'
 import NavLink from "@/components/navbar/links/NavLink/NavLink";
 import {useState} from "react";
+import Image from "next/image";
 
 const links = [
     {
@@ -47,7 +48,26 @@ const Links = () => {
                     )
                 }
             </div>
-            <button className={cls.menuButton} onClick={() => setOpen((prev) => !prev)}>menu</button>
+            {!open ? (
+                <Image
+                    className={cls.menuButton}
+                    src={"/menu.png"}
+                    alt={""}
+                    width={30}
+                    height={30}
+                    onClick={() => setOpen((prev) => !prev)}
+                />
+            ) : (
+                <Image
+                    className={cls.menuButton}
+                    src={"/close.png"}
+                    alt={""}
+                    width={30}
+                    height={30}
+                    onClick={() => setOpen((prev) => !prev)}
+                />
+            )
+            }
             {
                 open && <div className={cls.mobileLinks}>
                     {links.map((link) => (
