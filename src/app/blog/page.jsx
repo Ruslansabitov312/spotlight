@@ -1,6 +1,25 @@
+import cls from './blog.module.css'
+import PostCard from "@/components/postCard/PostCard";
+
 const BlogPage = () => {
     return (
-        <div>Blog Page</div>
+        <div className={cls.container}>
+            <div className={cls.post}>
+                <PostCard />
+            </div>
+            <div className={cls.post}>
+                <PostCard />
+            </div>
+            <div className={cls.post}>
+                <PostCard />
+            </div>
+            <div className={cls.post}>
+                <PostCard />
+            </div>
+            <div className={cls.post}>
+                <PostCard />
+            </div>
+        </div>
     )
 }
 
