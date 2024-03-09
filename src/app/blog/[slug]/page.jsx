@@ -1,7 +1,25 @@
 import cls from './singlePost.module.css'
 import Image from "next/image";
+import PostUser from "@/components/postUser/PostUser";
+import { Suspense } from 'react'
+import { getPost } from "@/lib/data";
 
-const SinglePostPage = () => {
+// !!!FETCH DATA WITH API!!!
+// const getData = async (slug) => {
+//     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`)
+//
+//     if(!res) {
+//         throw new Error("Something went wrong")
+//     }
+//
+//     return res.json()
+// }
+
+const SinglePostPage = async ({ params }) => {
+    const { slug } = params;
+    // const post = await getData(slug)
+    const post = await getPost(slug)
+
     return (
         <div className={cls.container}>
             <div className={cls.imgContainer}>
@@ -13,7 +31,7 @@ const SinglePostPage = () => {
                 />
             </div>
             <div className={cls.textContainer}>
-                <h1 className={cls.title}>Title</h1>
+                <h1 className={cls.title}>{post.title}</h1>
                 <div className={cls.detail}>
                     <Image
                         className={cls.avatar}
@@ -22,18 +40,15 @@ const SinglePostPage = () => {
                         width={50}
                         height={50}
                     />
-                    <div className={cls.detailText}>
-                        <span className={cls.detailTitle}>Author</span>
-                        <span className={cls.detailValue}>Terry Jefferson</span>
-                    </div>
+                    <Suspense fallback={<p>Loading...</p>}>
+                        <PostUser userId={post.userId} />
+                    </Suspense>
                     <div className={cls.detailText}>
                         <span className={cls.detailTitle}>Published</span>
                         <span className={cls.detailValue}>03.08.2024</span>
                     </div>
                 </div>
-                <div className={cls.content}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi consequuntur corporis eius maiores mollitia quas quia, voluptatibus? Alias at cupiditate facere iure perspiciatis quas, quibusdam repellat sapiente sunt voluptatem!
-                </div>
+                <div className={cls.content}>{post.body}</div>
             </div>
         </div>
     )
