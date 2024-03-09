@@ -4,51 +4,35 @@ import PostUser from "@/components/postUser/PostUser";
 import { Suspense } from 'react'
 import { getPost } from "@/lib/data";
 
-// !!!FETCH DATA WITH API!!!
-// const getData = async (slug) => {
-//     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`)
-//
-//     if(!res) {
-//         throw new Error("Something went wrong")
-//     }
-//
-//     return res.json()
-// }
-
 const SinglePostPage = async ({ params }) => {
     const { slug } = params;
-    // const post = await getData(slug)
     const post = await getPost(slug)
+    const formattedDate = `${post.createdAt.getDate() < 10 ? '0' : ''}${post.createdAt.getDate()}.${(post.createdAt.getMonth() + 1 < 10 ? '0' : '')}${post.createdAt.getMonth() + 1}.${post.createdAt.getFullYear()}`;
 
     return (
         <div className={cls.container}>
             <div className={cls.imgContainer}>
-                <Image
+                {post.img && (
+                    <Image
                     className={cls.img}
-                    src={"https://images.pexels.com/photos/20264139/pexels-photo-20264139.jpeg"}
+                    src={post.img}
                     alt={""}
                     fill
                 />
+                )}
             </div>
             <div className={cls.textContainer}>
                 <h1 className={cls.title}>{post.title}</h1>
                 <div className={cls.detail}>
-                    <Image
-                        className={cls.avatar}
-                        src={"https://images.pexels.com/photos/20264139/pexels-photo-20264139.jpeg"}
-                        alt={""}
-                        width={50}
-                        height={50}
-                    />
                     <Suspense fallback={<p>Loading...</p>}>
                         <PostUser userId={post.userId} />
                     </Suspense>
                     <div className={cls.detailText}>
                         <span className={cls.detailTitle}>Published</span>
-                        <span className={cls.detailValue}>03.08.2024</span>
+                        <span className={cls.detailValue}>{formattedDate}</span>
                     </div>
                 </div>
-                <div className={cls.content}>{post.body}</div>
+                <div className={cls.content}>{post.desc}</div>
             </div>
         </div>
     )
