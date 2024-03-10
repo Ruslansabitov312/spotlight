@@ -14,10 +14,22 @@ export const generateMetadata = async ({ params }) => {
     }
 }
 
+const getData = async (slug) => {
+    const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+        next: {revalidate: 3600}
+    })
+
+    if(!res.ok) {
+        throw new Error("Something went wrong")
+    }
+
+    return res.json()
+}
+
 const SinglePostPage = async ({ params }) => {
     const { slug } = params;
-    const post = await getPost(slug)
-    const formattedDate = `${post.createdAt.getDate() < 10 ? '0' : ''}${post.createdAt.getDate()}.${(post.createdAt.getMonth() + 1 < 10 ? '0' : '')}${post.createdAt.getMonth() + 1}.${post.createdAt.getFullYear()}`;
+    const post = await getData(slug)
+    // const formattedDate = `${post.createdAt.getDate() < 10 ? '0' : ''}${post.createdAt.getDate()}.${(post.createdAt.getMonth() + 1 < 10 ? '0' : '')}${post.createdAt.getMonth() + 1}.${post.createdAt.getFullYear()}`;
 
     return (
         <div className={cls.container}>
@@ -39,7 +51,7 @@ const SinglePostPage = async ({ params }) => {
                     </Suspense>
                     <div className={cls.detailText}>
                         <span className={cls.detailTitle}>Published</span>
-                        <span className={cls.detailValue}>{formattedDate}</span>
+                        <span className={cls.detailValue}>{post.createdAt.toString().slice(0, 10)}</span>
                     </div>
                 </div>
                 <div className={cls.content}>{post.desc}</div>
