@@ -2,6 +2,11 @@ import cls from './blog.module.css'
 import PostCard from "@/components/postCard/PostCard";
 import { getPosts } from "@/lib/data";
 
+export const metadata = {
+    title: 'Blog page',
+    description: 'Blog description',
+}
+
 const BlogPage =  async () => {
     const posts = await getPosts()
 

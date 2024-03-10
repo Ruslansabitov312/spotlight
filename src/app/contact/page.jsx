@@ -1,6 +1,11 @@
 import cls from './contact.module.css'
 import Image from "next/image";
 
+export const metadata = {
+    title: 'Contact page',
+    description: 'Contact description',
+}
+
 const ContactPage = () => {
     return (
         <div className={cls.container}>
