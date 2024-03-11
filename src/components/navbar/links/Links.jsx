@@ -5,7 +5,6 @@ import NavLink from "@/components/navbar/links/NavLink/NavLink";
 import {useState} from "react";
 import Image from "next/image";
 import {handleLogout} from "@/lib/action";
-import {auth} from "@/lib/auth";
 
 const links = [
     {
@@ -28,9 +27,6 @@ const links = [
 
 const Links = async ({session}) => {
     const [open, setOpen] = useState(false)
-
-    // temporary
-    const isAdmin = true
 
     return (
         <div className={cls.container}>
