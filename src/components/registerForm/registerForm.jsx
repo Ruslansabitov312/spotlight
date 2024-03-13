@@ -26,7 +26,7 @@ const RegisterForm = () => {
             <input required type="password" placeholder={"password"} name={"password"} />
             <input required type="password" placeholder={"confirm password"} name={"confirmPassword"} />
             <button>Register</button>
-            <span className={cls.error}>{state?.error}</span>
+            {state?.error && <span className={cls.error}>{state?.error}</span>}
             <Link href={"/login"}>Have an account? <b>Login</b></Link>
         </form>
 
