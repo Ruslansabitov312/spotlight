@@ -1,18 +1,18 @@
-import { Suspense } from 'react'
-import cls from './admin.module.css'
-import AdminPosts from "@/components/adminPosts/AdminPosts";
-import AdminPostForm from "@/components/adminPostForm/AdminPostForm";
-import AdminUsers from "@/components/adminUsers/AdminUsers";
-import AdminUserForm from "@/components/adminUserForm/AdminUserForm";
-import {auth} from "@/lib/auth";
+import { Suspense } from 'react';
+import cls from './admin.module.css';
+import AdminPosts from '@/components/adminPosts/AdminPosts';
+import AdminPostForm from '@/components/adminPostForm/AdminPostForm';
+import AdminUsers from '@/components/adminUsers/AdminUsers';
+import AdminUserForm from '@/components/adminUserForm/AdminUserForm';
+import { auth } from '@/lib/auth';
 
 export const metadata = {
     title: 'Admin page',
     description: 'Admin description',
-}
+};
 
 const AdminPage = async () => {
-    const session = await auth()
+    const session = await auth();
 
     return (
         <div className={cls.container}>
@@ -41,7 +41,7 @@ const AdminPage = async () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default AdminPage
+export default AdminPage;

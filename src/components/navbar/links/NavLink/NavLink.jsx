@@ -1,11 +1,11 @@
-"use client"
+'use client';
 
-import cls from './navLink.module.css'
-import Link from "next/link";
-import {usePathname} from "next/navigation";
+import cls from './navLink.module.css';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-const NavLink = ({item}) => {
-    const pathName = usePathname()
+const NavLink = ({ item }) => {
+    const pathName = usePathname();
 
     return (
         <Link
@@ -14,7 +14,7 @@ const NavLink = ({item}) => {
         >
             {item.title}
         </Link>
-    )
-}
+    );
+};
 
-export default NavLink
+export default NavLink;

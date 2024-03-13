@@ -1,5 +1,5 @@
-import cls from './register.module.css'
-import RegisterForm from "@/components/registerForm/registerForm";
+import cls from './register.module.css';
+import RegisterForm from '@/components/registerForm/registerForm';
 
 const RegisterPage = () => {
     return (
@@ -8,7 +8,7 @@ const RegisterPage = () => {
                 <RegisterForm />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default RegisterPage
+export default RegisterPage;
