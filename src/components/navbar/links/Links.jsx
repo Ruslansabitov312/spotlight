@@ -25,7 +25,7 @@ const links = [
     },
 ];
 
-const Links = async ({ session }) => {
+const Links = ({ session }) => {
     const [open, setOpen] = useState(false);
 
     return (

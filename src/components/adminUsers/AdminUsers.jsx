@@ -18,7 +18,7 @@ const AdminUsers = async () => {
                             width={50}
                             height={50}
                         />
-                        <span className={user.isAdmin && cls.admin}>
+                        <span className={user.isAdmin ? cls.admin : ''}>
                             {user.username}
                         </span>
                     </div>
